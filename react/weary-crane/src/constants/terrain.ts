@@ -1,0 +1,15 @@
+export const TERRAIN_ROAD = '\u26D9';
+export const TERRAIN_HQ = 'HQ';
+// export const TERRAIN_CITY_UNCAPTURED = '\u2630';
+export const TERRAIN_FACTORY = '[F]';
+export const TERRAIN_AIRPORT = '[A]';
+export const TERRAIN_SEAPORT = '[S]';
+export const TERRAIN_PLAIN = '_';
+export const TERRAIN_FOREST = '\u2F4A';
+export const TERRAIN_MOUNTAIN = '\u26F0';
+export const TERRAIN_RIVER = '\u2F2E';
+export const TERRAIN_LAKE = '\u2F54';
+export const TERRAIN_SEA = '\u328C';
+// export const TERRAIN_SEA = String.fromCodePoint(0x1F30A);
+export const TERRAIN_BEACH = '\u233F';
+export const TERRAIN_CITY_UNCAPTURED = String.fromCodePoint(0x1D306);
