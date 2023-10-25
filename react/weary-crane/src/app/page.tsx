@@ -47,100 +47,37 @@ export default function Home() {
   }
 
   return (
-    <main className='flex min-h-screen flex-col items-center w-full p-24 bg-stone-50 dark:bg-stone-950'>
+    <main className='flex min-h-screen flex-col items-center justify-center w-full py-12 px-24 bg-stone-50 dark:bg-stone-950'>
       <div
         className={[
-          'w-full',
+          // 'w-full',
           'flex flex-col',
           'z-10 font-mono text-sm lg:flex bg-stone-100 dark:bg-stone-900',
-          'p-8 rounded-2xl',
+          'pl-5 pr-10 py-3 rounded-md',
           'gap-4',
         ].join(' ')}
       >
-        <h1 className='text-stone-600 dark:text-stone-400'>Weary Crane</h1>
-        <MGRSCoordinateLabel coordinate={US_HI_HONOLULU} />
-        {/* <div className='self-center grid grid-flow-row grid-cols-12 grid-rows-6'>
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_HQ} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_LAKE} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_ROAD} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_SEA} />
-          <MapTile contents={TERRAIN_BEACH} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_CITY_UNCAPTURED} />
-          <MapTile contents={TERRAIN_CITY_UNCAPTURED} />
-          <MapTile contents={TERRAIN_MOUNTAIN} />
-          <MapTile contents={TERRAIN_FOREST} />
-          <MapTile contents={TERRAIN_PLAIN} />
-          <MapTile contents={TERRAIN_RIVER} />
-          <MapTile contents={TERRAIN_SEA} />
-        </div> */}
-        <div className='flex flex-row gap-4 items-center'>
-          <div className='flex flex-col-reverse w-full'>
-            {Array.from(new Array(mapHeight)).map((row, y) => (
-              <div key={y} className='h-6 flex flex-row items-top justify-end'>
-                <p className='text-right text-stone-500'>{(10000 * y).toString().padStart(6, '0')}</p>
-              </div>
-            ))}
+        <div className='flex flex-row justify-between'>
+          <div className='flex flex-col'>
+            <small className='text-stone-400 dark:text-stone-600 -mb-2'>
+              Territory:
+            </small>
+            <h1 className='text-stone-600 dark:text-stone-400 text-xl'>
+              Weary Crane
+            </h1>
+            <small className='text-stone-400 dark:text-stone-600 -mb-1'>
+              MGRS Coordinate:
+            </small>
+            <MGRSCoordinateLabel coordinate={US_HI_HONOLULU} />
           </div>
+          <div className='flex flex-col items-end'>
+            <small className='text-stone-400 dark:text-stone-600 -mb-1'>
+              Map Resolution:
+            </small>
+            <p className='text-stone-500'>1000m</p>
+          </div>
+        </div>
+        <div className='flex justify-center'>
           <Map height={mapHeight} width={mapWidth} terrainLogic={randomTile} />
         </div>
       </div>
