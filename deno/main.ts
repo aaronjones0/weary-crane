@@ -1,5 +1,3 @@
-function handler(request: Request): Response {
-  return new Response('Hello, world, from Boca Lane.');
-}
-
-Deno.serve(handler);
+Deno.serve((request: Request) =>
+  Response.json({ message: 'Hello, world, from Boca Lane.' })
+);
