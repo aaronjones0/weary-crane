@@ -2,5 +2,5 @@
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": false,
-  "deno.enablePaths": ["./deno/**"]
+  "deno.disablePaths": ["./react"]
 }
