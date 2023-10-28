@@ -9,7 +9,7 @@ export function Map({
 }: {
   height: number;
   width: number;
-  terrainLogic: () => string;
+  terrainLogic: (x: number, y: number) => string;
 }) {
   return (
     <div className='flex flex-col items-start'>

@@ -1,3 +1,5 @@
+import { isLand } from "@weary-crane/logic/terrain-logic";
+
 export default function MapTile({ contents }: { contents: string }) {
   return (
     // <div
@@ -19,9 +21,9 @@ export default function MapTile({ contents }: { contents: string }) {
       <span className='absolute bottom-0 rounded-full bg-stone-700/10 h-1 w-1 -ml-0.5 -mb-0.5'>&nbsp;</span>
       <div
         className={[
-          'h-5 w-5',
-          'flex items-center justify-center rounded-lg',
-          'bg-stone-300 dark:bg-stone-900 hover:bg-stone-400 dark:hover:bg-stone-800',
+          'h-6 w-6',
+          'flex items-center justify-center',
+          isLand(contents) ? 'bg-stone-700' : 'bg-stone-300 dark:bg-stone-900 hover:bg-stone-400 dark:hover:bg-stone-800',
           'font-mono text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300',
         ].join(' ')}
       >

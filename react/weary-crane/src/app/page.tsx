@@ -13,12 +13,28 @@ import {
 } from '@weary-crane/constants/terrain';
 import { MGRSCoordinateLabel } from '../components/MGRSCoordinateLabel/MGRSCoordinateLabel';
 import { Map } from '../components/Map/Map';
+import { TERRITORY_REACHER } from '@weary-crane/constants/territories/reacher';
+import RoadNorthSouth from '@weary-crane/components/Roads/RoadNorthSouth';
+import RoadEastWest from '@weary-crane/components/Roads/RoadEastWest';
+import RoadNorthWest from '@weary-crane/components/Roads/RoadNorthWest';
+import RoadNorthEast from '@weary-crane/components/Roads/RoadNorthEast';
+import RoadSouthEast from '@weary-crane/components/Roads/RoadSouthEast';
+import RoadSouthWest from '@weary-crane/components/Roads/RoadSouthWest';
+import RoadAll from '@weary-crane/components/Roads/RoadAll';
+import RoadNorthSouthWest from '@weary-crane/components/Roads/RoadNorthSouthWest';
+import RoadNorthSouthEast from '@weary-crane/components/Roads/RoadNorthSouthEast';
+import RoadEastWestNorth from '@weary-crane/components/Roads/RoadEastWestNorth';
+import RoadEastWestSouth from '@weary-crane/components/Roads/RoadEastWestSouth';
+import RoadWest from '@weary-crane/components/Roads/RoadWest';
+import RoadNorth from '@weary-crane/components/Roads/RoadNorth';
+import RoadEast from '@weary-crane/components/Roads/RoadEast';
+import RoadSouth from '@weary-crane/components/Roads/RoadSouth';
 
 export default function Home() {
-  const mapHeight = 30;
-  const mapWidth = 50;
+  const mapHeight = 13;
+  const mapWidth = 32;
 
-  function randomTile(): string {
+  function randomTile(x: number, y: number): string {
     const r = Math.floor(Math.random() * 10);
 
     switch (r) {
@@ -46,11 +62,14 @@ export default function Home() {
     }
   }
 
+  function territoryReacherTile(x: number, y: number): string {
+    return TERRITORY_REACHER.get(`${x},${y}`) ?? '?';
+  }
+
   return (
     <main className='flex min-h-screen flex-col items-center justify-center w-full py-12 px-24 bg-stone-50 dark:bg-stone-950'>
       <div
         className={[
-          // 'w-full',
           'flex flex-col',
           'z-10 font-mono text-sm lg:flex bg-stone-100 dark:bg-stone-900',
           'pl-5 pr-10 py-3 rounded-md',
@@ -63,7 +82,7 @@ export default function Home() {
               Territory:
             </small>
             <h1 className='text-stone-600 dark:text-stone-400 text-xl'>
-              Weary Crane
+              Reacher
             </h1>
             <small className='text-stone-400 dark:text-stone-600 -mb-1'>
               MGRS Coordinate:
@@ -77,8 +96,29 @@ export default function Home() {
             <p className='text-stone-500'>1000m</p>
           </div>
         </div>
+        {/* <div className='flex flex-row gap-1'>
+          <RoadNorthSouth />
+          <RoadEastWest />
+          <RoadNorthWest />
+          <RoadNorthEast />
+          <RoadSouthEast />
+          <RoadSouthWest />
+          <RoadAll />
+          <RoadNorthSouthWest />
+          <RoadNorthSouthEast />
+          <RoadEastWestNorth />
+          <RoadEastWestSouth />
+          <RoadWest />
+          <RoadNorth />
+          <RoadEast />
+          <RoadSouth />
+        </div> */}
         <div className='flex justify-center'>
-          <Map height={mapHeight} width={mapWidth} terrainLogic={randomTile} />
+          <Map
+            height={mapHeight}
+            width={mapWidth}
+            terrainLogic={territoryReacherTile}
+          />
         </div>
       </div>
     </main>
