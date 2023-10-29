@@ -1,4 +1,5 @@
 import MGRSCoordinateLabel from "../components/MGRSCoordinateLabel/MGRSCoordinateLabel.tsx";
+import { TERRITORY_REACHER } from "../constants/territories/Reacher.ts";
 import TerritoryMapTile from "../islands/TerritoryMapTile/TerritoryMapTile.tsx";
 
 export default function MapPage() {
@@ -14,15 +15,32 @@ export default function MapPage() {
         Northering={789012}
       />
       <div class="flex flex-col">
-        {Array.from(new Array(height)).map((v, y) => (
-          <div class="flex flex-row">
-            {Array.from(new Array(width)).map((v, x) => (
+        {[...TERRITORY_REACHER.keys()].map((y) => (
+          <div key={y} class="flex flex-row">
+            {[...TERRITORY_REACHER.get(y)?.keys()].map((x) => (
               <TerritoryMapTile
-                key={`${x},${y}}`}
+                key={`${y},${x}`}
+                terrain={TERRITORY_REACHER.get(y)
+                  ? TERRITORY_REACHER.get(y).get(x)
+                  : "sea"}
+                unit={null}
               />
             ))}
           </div>
         ))}
+        {
+          /* {Array.from(new Array(height)).map((v, y) => (
+          <div class="flex flex-row">
+            {Array.from(new Array(width)).map((v, x) => (
+              <TerritoryMapTile
+                key={`${x},${y}}`}
+                terrain="sea"
+                unit={null}
+              />
+            ))}
+          </div>
+        ))} */
+        }
       </div>
     </div>
   );
