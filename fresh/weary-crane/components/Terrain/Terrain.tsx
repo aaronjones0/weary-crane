@@ -1,14 +1,20 @@
 import { TerrainType } from "../../types/TerrainType.ts";
+import TerrainBuilding from "../TerrainBuilding/TerrainBuilding.tsx";
+import TerrainRoad from "../TerrainRoad/TerrainRoad.tsx";
 
 export default function Terrain({ type }: { type: TerrainType }) {
   return (
     <div
       class={[
-        "flex items-center justify-center",
-        isLand(type) ? "bg-stone-600" : "",
+        "group",
+        "pointer-default",
+        "flex items-center justify-center h-full w-full",
+        isLand(type) ? "bg-stone-400 hover:bg-stone-500" : "",
       ].join(" ")}
     >
-      {symbol(type)}
+      <TerrainRoad type={type} />
+      <TerrainBuilding type={type} />
+      <span class="pointer-events-none text-stone-950 group-hover:text-stone-50">{symbol(type)}</span>
     </div>
   );
 }
@@ -19,10 +25,10 @@ export function isLand(terrainType: TerrainType): boolean {
     case "sea-stack":
     case "beach":
     case "lake":
-    case "forest":
     case "river":
     default:
       return false;
+    case "forest":
     case "plain":
     case "mountains":
     case "hq":
@@ -51,7 +57,7 @@ export function isLand(terrainType: TerrainType): boolean {
 export function symbol(terrainType: TerrainType): string {
   switch (terrainType) {
     case "forest":
-      return "\u219F";
+      return "\u219F\u219F";
     case "sea-stack":
       return String.fromCodePoint(0x1F7C2);
     case "beach":
@@ -65,43 +71,43 @@ export function symbol(terrainType: TerrainType): string {
     case "mountains":
       return "\u26F0";
     case "hq":
-      return "HQ";
+      return "";
     case "base-land":
-      return "L";
+      return "";
     case "base-air":
-      return "A";
+      return "";
     case "base-sea":
-      return "S";
+      return "";
     case "power-plant":
-      return "P";
+      return "";
     case "road-east-west":
       return "";
     case "road-north-south":
       return "";
     case "road-north":
-      return "";
+      return "v";
     case "road-east":
       return "";
     case "road-south":
-      return "";
+      return "^";
     case "road-west":
-      return "";
+      return ">";
     case "road-north-west":
       return "";
     case "road-north-east":
-      return "";
+      return "^>";
     case "road-south-west":
       return "";
     case "road-south-east":
       return "";
     case "road-north-south-west":
-      return "";
+      return "-|";
     case "road-north-east-west":
-      return "";
+      return "-^-";
     case "road-north-south-east":
-      return "";
+      return "\uA714";
     case "road-south-east-west":
-      return "";
+      return "-v-";
     case "sea":
     default:
       return "";
