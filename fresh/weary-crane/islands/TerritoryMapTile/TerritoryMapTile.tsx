@@ -7,7 +7,7 @@ export default function TerritoryMapTile(
   { terrain, unit }: { terrain: TerrainType; unit: UnitType | null },
 ) {
   return (
-    <div class="relative h-8 w-8 bg-stone-300 hover:bg-stone-400/50 flex flex-col justify-center items-center pointer-default group">
+    <div class="relative h-8 w-8 bg-stone-300 hover:bg-stone-400/50 flex flex-col justify-center items-center pointer-default">
       <div class="absolute h-8 w-8">
         <Terrain type={terrain} />
       </div>
