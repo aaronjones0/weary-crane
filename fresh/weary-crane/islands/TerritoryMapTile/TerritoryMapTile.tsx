@@ -4,12 +4,13 @@ import { TerrainType } from "../../types/TerrainType.ts";
 import { UnitType } from "../../types/UnitType.ts";
 
 export default function TerritoryMapTile(
-  { terrain, unit, xAxisHover, yAxisHover, onMouseEnter }: {
+  { terrain, unit, xAxisHover, yAxisHover, onMouseEnter, onMouseLeave }: {
     terrain: TerrainType;
     unit: UnitType | null;
     xAxisHover?: boolean;
     yAxisHover?: boolean;
     onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
   },
 ) {
   return (

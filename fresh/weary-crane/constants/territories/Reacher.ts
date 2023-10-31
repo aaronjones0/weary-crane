@@ -1,4 +1,5 @@
 import { TerrainType } from "../../types/TerrainType.ts";
+import { Territory } from "../../types/Territory.ts";
 
 const ROW1 = new Map<number, TerrainType>([
   [0, "sea"],
@@ -525,7 +526,7 @@ const ROW15 = new Map<number, TerrainType>([
   [31, "sea"],
 ]);
 
-export const TERRITORY_REACHER = new Map([
+export const TERRITORY_REACHER: Territory = new Map([
   [0, ROW1],
   [1, ROW2],
   [2, ROW3],
