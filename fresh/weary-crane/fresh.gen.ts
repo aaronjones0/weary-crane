@@ -11,7 +11,9 @@ import * as $5 from "./routes/greet/[name].tsx";
 import * as $6 from "./routes/index.tsx";
 import * as $7 from "./routes/map.tsx";
 import * as $$0 from "./islands/Counter.tsx";
-import * as $$1 from "./islands/TerritoryMapTile/TerritoryMapTile.tsx";
+import * as $$1 from "./islands/TerritoryMapRow/TerritoryMapRow.tsx";
+import * as $$2 from "./islands/TerritoryMapTile/TerritoryMapTile.tsx";
+import * as $$3 from "./islands/TerritoryMap/TerritoryMap.tsx";
 
 const manifest = {
   routes: {
@@ -26,7 +28,9 @@ const manifest = {
   },
   islands: {
     "./islands/Counter.tsx": $$0,
-    "./islands/TerritoryMapTile/TerritoryMapTile.tsx": $$1,
+    "./islands/TerritoryMapRow/TerritoryMapRow.tsx": $$1,
+    "./islands/TerritoryMapTile/TerritoryMapTile.tsx": $$2,
+    "./islands/TerritoryMap/TerritoryMap.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };

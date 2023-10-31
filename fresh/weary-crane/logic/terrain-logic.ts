@@ -124,3 +124,11 @@ export function symbol(terrainType: TerrainType): string {
       return "";
   }
 }
+
+export function eastering(x: number): string {
+  return (x * 1000).toString().padStart(5, "0");
+}
+
+export function northering(y: number): string {
+  return (y * 1000).toString().padStart(5, "0");
+}
