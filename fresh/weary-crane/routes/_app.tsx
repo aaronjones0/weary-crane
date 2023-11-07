@@ -1,6 +1,10 @@
 import { AppProps } from "$fresh/server.ts";
+import { PRIMARY } from "../theme/Theme.ts";
+import { createTheme } from "../theme/Theme.ts";
 
 export default function App({ Component }: AppProps) {
+  const theme = createTheme(PRIMARY, "dark");
+
   return (
     <html>
       <head>
@@ -14,8 +18,12 @@ export default function App({ Component }: AppProps) {
         </link>
       </head>
       <body
-        class="bg-stone-200 text-stone-700"
-        style={{ fontFamily: "Rubik" }}
+        // class="bg-stone-200 text-stone-700"
+        style={{
+          fontFamily: "Rubik",
+          backgroundColor: theme.surface1,
+          color: theme.text1,
+        }}
       >
         <Component />
       </body>
