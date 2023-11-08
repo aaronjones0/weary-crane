@@ -1,6 +1,5 @@
 import { AppProps } from "$fresh/server.ts";
-import { PRIMARY } from "../theme/Theme.ts";
-import { createTheme } from "../theme/Theme.ts";
+import { createTheme, PRIMARY } from "../theme/Theme.ts";
 
 export default function App({ Component }: AppProps) {
   const theme = createTheme(PRIMARY, "dark");
